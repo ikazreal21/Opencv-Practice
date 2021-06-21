@@ -25,7 +25,8 @@ while True:
     blur = cv.GaussianBlur(gray, (5, 5), cv.BORDER_DEFAULT)
     canny = cv.Canny(blur, 125, 170)
     # cv.imshow("Canny", canny)
-    contours, hierarchies = cv.findContours(canny, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
+    contours, hierarchies = cv.findContours(
+        canny, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
     # print(f"{len(contours)} contours found")
     cv.drawContours(frame, contours, -1, (0, 0, 255), 2)
     cv.imshow("Contours Drawn", frame)
